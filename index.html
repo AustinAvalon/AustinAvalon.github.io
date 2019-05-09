@@ -39,7 +39,7 @@
 				</p></div>
       				<p>We will go through the results in different steps in the following.</p>
     <br>
-				<p>Step(1) : Use network to classify the crack and non-crack.</p>
+				<h4>Step(1) : Use network to classify the crack and non-crack.</h4>
 				<img src="/DataSample.png" alt="image">
 				<p>Procedure:</p>
 				<p>The data we get is pre-labeled. At first we want to see if the network from paper can correctly classify this dataset as it is given. The work we are going to do in this part is just using the network from the paper train partial dataset. And test the some part of other part dataset. The result is shown in the below. </p>
@@ -51,7 +51,7 @@
 				<p>Findings<br>
 					Since all three measurements are not high, we want to try other approaches to improve our results. 
 					</p>
-		<p>Step(2):  Find the best ratio between crack and non crack</p>
+		<h4>Step(2):  Find the best ratio between crack and non crack</h4>
 				<p>Procedure: <br>
 				Since the results from the simple training doesn’t work very well, we want to try the adjust ratio between crack and non crack. The idea comes from a paper we read. We want to see, within different ratio of cracks and non cracks, can we improve our results or not.
 				</p>
@@ -67,7 +67,7 @@
 				<p>For the precision, we can’t have an accurate answer on the relation between precision and ratio. However, we can assume ratio doesn’t change precision because the four precision values vary in a range of 0.
 				</p>
 				<p>There are some changes by different ratio but this approach doesn’t improve our results.</p>
-				<p>Step (3): crop the images and train</p>
+				<h4>Step (3): crop the images and train</h4>
 				<p>We crop the cracks and non cracks by ImageJ, a software that can easily label the features by pointing. After the pointing, we crop the according 32x32x3 images, change to grayscales and normalize them to be 32x32x1 and store them for the next step. These two images generated from the cropping process. The left is the crack. The right is the non crack. Both are not normalized nor graysscelaed . There is a light crack on the right side of the crack images. And the non crack image have some noise.</p>
 				<img src="/CroppedImagesSample.png" alt="image">
 				<p>We crop 500 cracks and 500 non cracks. We trained them in the network after we normalized them. The following is the results of network testing..</p>
@@ -81,7 +81,7 @@
 				<br>With the normalization preprocess, the accuracy is higher than step 2 and 1
 				<br>This results confirm that with the same techs in the paper will improve the accuracy. But we cannot confirm that this accuracy is high enough for the following approaches.
 				</p>
-				<p>Step(4): correlation </p>
+				<h4>Step(4): correlation </h4>
 				<p>Correlation is a big part in this paper. Since they mentioned that without correction there many errors. We generate 433 cracks as they do and try to find the high risk point in the image. The following  image is the sample map results from the correlation. The z-axis shows how the 32x32x1 images around this point is similar to the cracks we generated. We choose the value &gt; 0.75 to be the high risk. The following graph comes from the a single correlation. The yellow part are positive and the blue part are negative. The higher the more similar, the lower the less similar. </p>
 				<img src="/CorrlationMap.png" alt="image">
 				<p>Procedure & Reuslts:</p>
