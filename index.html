@@ -9,7 +9,7 @@
 		<p style="font-size:12pt;text-align:center">Baokun Huang, Yu Wang, Shuhao Zhou, Xinzhang Li</p>
 		<h2>PAPER SUMMARY</h2>
 			<h3>1.1 Flowchart </h3>
-				<imgsrc="/pasted image 0.png">
+				< img id="search-image" src="<?= BASE_URL ?>/public/pasted image 0.png" alt="search image">
 				<p>Fig1[1]: image from “Automated damage analysis of a bio-cellular material via feature-based learning in X-ray tomography, Ziling Wu, Ting Yang, Baokun Huang, Han Liu, Yu Wang, Hongwei Lou, Ling Li, Yunhui Zhu” </p>
 				<p>The paper analyzed the images of X-ray CT sea urchin skeleton structure, by detecting the cracks and small particles. The dataset of the paper comes from a X-ray tomography reconstruction. The whole structure is split to 2160 layers of tiff images. But these images are noisy and the cracks are small, scattering in images. The flowchart above shows how they find the crack.</p>
 				<p>In the module 1, the paper generates 433 pieces of cracks. Once these cracks are generated, they are used to do a correlation with the original image to find the potential points in the original images. The idea of this approach is to reduce the calculation of the networks and make  results be more accurate.</p>
