@@ -48,7 +48,10 @@
 				TP: 655 FP: 5385 FN: 389<br>
 				Pr = 0.108 Re= 0.627 F1= 0.184
 				</p>
-				<p>Step(2):  Find the best ratio between crack and non crack</p>
+				<p>Findings<br>
+					Since all three measurements are not high, we want to try other approaches to improve our results. 
+					</p>
+		<p>Step(2):  Find the best ratio between crack and non crack</p>
 				<p>Procedure: <br>
 				Since the results from the simple training doesn’t work very well, we want to try the adjust ratio between crack and non crack. The idea comes from a paper we read. We want to see, within different ratio of cracks and non cracks, can we improve our results or not.
 				</p>
@@ -81,6 +84,7 @@
 				<p>Step(4): correlation </p>
 				<p>Correlation is a big part in this paper. Since they mentioned that without correction there many errors. We generate 433 cracks as they do and try to find the high risk point in the image. The following  image is the sample map results from the correlation. The z-axis shows how the 32x32x1 images around this point is similar to the cracks we generated. We choose the value &gt; 0.75 to be the high risk. The following graph comes from the a single correlation. The yellow part are positive and the blue part are negative. The higher the more similar, the lower the less similar. </p>
 				<img src="/CorrlationMap.png" alt="image">
+				<p>Procedure & Reuslts:</p>
 				<p>Next step is to crop the same size of images as the ones we trained in the network so as to classify the results. The following three images show the result. The original image is directly from the dataset. The second images is the images that contain the red point which comes from the correlation process. These high risk points are the points we will test in this step. These red points form a middle line which is the crack we want to highlight. But there are some noise high risk points around it. The goal at this step  is to use the network to get rid of these line and keep the middle line as much as possible. After we use the network to classify all the 32x32x1 images located at high risk points, we remove most of the incorrected points and leave some of points on the crack. You can see the result in the third image. The third one is last result. It is clearly depict the crack location, although the high risk pint are getting less. The noise are totally removed. The reason that the red points are not centered on the crack is that we test the images with a 32x32x1 cropping images so that the test images from red points near crack will also contain part of crack. These crack will cause the images be classified as crack.
 				</p>
 				<p>The results can be clearly detected, we think we have reproduced the paper. </p>
